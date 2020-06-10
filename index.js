@@ -28,16 +28,17 @@ function relog() {
 }
 function startPlugins(plugins, bot) {
   let pluginsArr = makePluginArr();
-  const requireList = {
-    bot,
-    client,
-    Discord,
-    discordConfig,
-    util,
-    chalk,
-  };
   for (const plugin of pluginsArr) {
     if (plugin.enabled) {
+      const requireList = {
+        bot,
+        client,
+        Discord,
+        discordConfig,
+        util,
+        chalk,
+        plugin,
+      };
       require(plugin.path)(requireList);
       const pluginLoadedMsg =
         chalk.cyan("[Plugin Loader] ") +
