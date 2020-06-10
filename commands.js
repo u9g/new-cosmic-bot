@@ -1,6 +1,12 @@
-const commands = new Map([["baltop", 5]]);
+const commands = new Map([
+  ["baltop", 5],
+  ["bal", 5],
+]);
 
-let commandCooldown = new Map([["baltop", new Map()]]);
+let commandCooldown = new Map([
+  ["baltop", new Map()],
+  ["bal", new Map()],
+]);
 
 const handler = function (message, command, resolve, reject) {
   let delay = () => {
@@ -25,7 +31,11 @@ const handler = function (message, command, resolve, reject) {
   if (commandCooldown.get(command).has(message.author.id)) {
     reject();
   } else {
-    if (command === "baltop") {
+    if (command === "bal") {
+      resolve();
+      commandCooldown.get(command).set(message.author.id, new Date());
+      delay();
+    } else if (command === "baltop") {
       resolve();
       commandCooldown.get(command).set(message.author.id, new Date());
       delay();

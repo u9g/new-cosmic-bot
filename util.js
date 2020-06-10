@@ -57,7 +57,8 @@ exports.GenerateRandomEmbedColor = () => {
 exports.SendAlreadyRunning = (channel, prefix, Discord) => {
   const msg =
     prefix + " command already running! Wait a few moments and try again!";
-  const embed = new Discord.MessageEmbed.setTitle(msg);
+  let embed = new Discord.MessageEmbed();
+  embed.setTitle(msg);
   channel.send(embed);
 };
 exports.SendExecuted = (chalk, plugin, user) => {

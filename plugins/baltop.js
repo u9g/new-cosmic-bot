@@ -5,7 +5,6 @@ module.exports = ({ client, bot, Discord, util, plugin, chalk, handler }) => {
   const isIsTopEntry = RegExp(
     /((\d+)\.\s+(\w+)\:\s+\$([\-\+]{0,1}\d[\d\.\,]*[\.\,][\d\.\,]*\d+))/g
   );
-  let prom;
 
   client.on("message", (msg) => {
     if (msg.content === ">baltop" && msg.channel.id === util.getCmdChannel()) {
@@ -14,17 +13,14 @@ module.exports = ({ client, bot, Discord, util, plugin, chalk, handler }) => {
         util.SendAlreadyRunning(msg.channel, prefix, Discord);
       } else {
         util.SendExecuted(chalk, plugin, msg.author.username);
-        prom = new Promise(function (resolve, reject) {
+        const prom = new Promise(function (resolve, reject) {
           handler(msg, "baltop", resolve, reject);
         });
         prom.then(
           () => {
-            ({ data, requestChannel } = startCommand(
-              bot,
-              data,
-              requestChannel,
-              msg
-            ));
+            bot.chat("/baltop");
+            data = [];
+            requestChannel = msg.channel.id;
           },
           function (err) {
             //HANDLES IF THE COMMAND WAS STILL ON COOLDOWN
@@ -54,13 +50,6 @@ module.exports = ({ client, bot, Discord, util, plugin, chalk, handler }) => {
     }
   });
 };
-
-function startCommand(bot, data, requestChannel, msg) {
-  bot.chat("/baltop");
-  data = [];
-  requestChannel = msg.channel.id;
-  return { data, requestChannel };
-}
 
 function sendMessage(client, embed, channelId) {
   return client.channels.fetch(channelId).then((channel) => {
