@@ -1,10 +1,11 @@
-module.exports = ({ client, bot, Discord, util, plugin, chalk }) => {
+module.exports = ({ client, bot, Discord, util, plugin, chalk, handler }) => {
   const prefix = plugin.cmd_name;
   let data = [];
   let requestChannel = "";
   const isIsTopEntry = RegExp(
     /((\d+)\.\s+(\w+)\:\s+\$([\-\+]{0,1}\d[\d\.\,]*[\.\,][\d\.\,]*\d+))/g
   );
+  let prom;
 
   client.on("message", (msg) => {
     if (msg.content === ">baltop" && msg.channel.id === util.getCmdChannel()) {
@@ -13,16 +14,29 @@ module.exports = ({ client, bot, Discord, util, plugin, chalk }) => {
         util.SendAlreadyRunning(msg.channel, prefix, Discord);
       } else {
         util.SendExecuted(chalk, plugin, msg.author.username);
-        bot.chat("/baltop");
-        data = [];
-        requestChannel = msg.channel.id;
+        prom = new Promise(function (resolve, reject) {
+          handler(msg, "baltop", resolve, reject);
+        });
+        prom.then(
+          () => {
+            ({ data, requestChannel } = startCommand(
+              bot,
+              data,
+              requestChannel,
+              msg
+            ));
+          },
+          function (err) {
+            //HANDLES IF THE COMMAND WAS STILL ON COOLDOWN
+          }
+        );
       }
     }
   });
 
   bot.on("message", function (msg) {
     const fullText = util.GenerateFullText(msg);
-    console.log(fullText);
+    //console.log(fullText);
 
     if (isIsTopEntry.test(fullText)) {
       // entry on /baltop
@@ -40,6 +54,13 @@ module.exports = ({ client, bot, Discord, util, plugin, chalk }) => {
     }
   });
 };
+
+function startCommand(bot, data, requestChannel, msg) {
+  bot.chat("/baltop");
+  data = [];
+  requestChannel = msg.channel.id;
+  return { data, requestChannel };
+}
 
 function sendMessage(client, embed, channelId) {
   return client.channels.fetch(channelId).then((channel) => {

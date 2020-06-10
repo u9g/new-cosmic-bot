@@ -7,6 +7,7 @@ const discordConfig = require("./discordConfig.json");
 const plugins = require("./plugins.json");
 const mineflayer = require("mineflayer");
 const chalk = require("chalk");
+const { handler } = require("./commands");
 
 let bot = mineflayer.createBot(options);
 bindEvents(bot);
@@ -38,6 +39,7 @@ function startPlugins(plugins, bot) {
         util,
         chalk,
         plugin,
+        handler,
       };
       require(plugin.path)(requireList);
       const pluginLoadedMsg =
