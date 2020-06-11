@@ -45,6 +45,7 @@ module.exports = ({
   });
   bot.on("message", (msg) => {
     const fullText = util.GenerateFullText(msg);
+    console.log(fullText);
     if (fullText.includes("----------- [ ")) {
       //alliance name shown in chat (1 msg b4 members names)
       data.name = getAllianceName(fullText);
@@ -72,7 +73,10 @@ module.exports = ({
           commandRunning
         ));
       }
-    } else if (commandRunning && regex.allianceDoesntExist.test(fullText)) {
+    } else if (
+      (commandRunning && regex.allianceDoesntExist.test(fullText)) ||
+      (commandRunning && fullText === "Usage: /alliance info <alliance/player>")
+    ) {
       //if not an alliance
       const embed = createNotAllianceEmbed(Discord, util);
       sendMessage(requestChannel, client, embed);
