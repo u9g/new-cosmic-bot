@@ -45,7 +45,6 @@ module.exports = ({
   });
   bot.on("message", (msg) => {
     const fullText = util.GenerateFullText(msg);
-    console.log(fullText);
     if (fullText.includes("----------- [ ")) {
       //alliance name shown in chat (1 msg b4 members names)
       data.name = getAllianceName(fullText);
