@@ -10,7 +10,7 @@ module.exports = ({ client, bot, Discord, util, plugin, chalk, handler }) => {
     if (
       msg.content.startsWith(prefix) &&
       msg.channel.id === util.getCmdChannel() &&
-      msg.content !== ">baltop"
+      !msg.content.startsWith(">baltop")
     ) {
       if (msg.author.bot) return;
       if (msg.content.trim().length === prefix.length) {
@@ -39,7 +39,6 @@ module.exports = ({ client, bot, Discord, util, plugin, chalk, handler }) => {
 
   bot.on("message", function (msg) {
     const fullText = util.GenerateFullText(msg);
-    console.log(fullText);
     if (balRequestChannel !== "" && fullText.includes("'s Balance")) {
       const info = {
         ign: fullText.substring(0, fullText.indexOf("'")),

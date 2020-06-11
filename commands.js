@@ -1,11 +1,15 @@
 const commands = new Map([
   ["baltop", 5],
   ["bal", 5],
+  ["abal", 15],
+  ["puns", 5],
 ]);
 
 let commandCooldown = new Map([
   ["baltop", new Map()],
   ["bal", new Map()],
+  ["abal", new Map()],
+  ["puns", new Map()],
 ]);
 
 const handler = function (message, command, resolve, reject) {
@@ -31,14 +35,14 @@ const handler = function (message, command, resolve, reject) {
   if (commandCooldown.get(command).has(message.author.id)) {
     reject();
   } else {
-    if (command === "bal") {
-      resolve();
-      commandCooldown.get(command).set(message.author.id, new Date());
-      delay();
-    } else if (command === "baltop") {
-      resolve();
-      commandCooldown.get(command).set(message.author.id, new Date());
-      delay();
+    switch (command) {
+      case "abal":
+      case "bal":
+      case "baltop":
+      case "puns":
+        resolve();
+        commandCooldown.get(command).set(message.author.id, new Date());
+        delay();
     }
   }
 };
