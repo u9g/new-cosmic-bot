@@ -39,7 +39,7 @@ module.exports = ({
 function CreateEmbed(msgToSend, Discord) {
   return new Discord.MessageEmbed()
     .setColor("AQUA")
-    .setTitle("`" + "Daily XP Top" + "`")
+    .setTitle("**Daily XP Top**")
     .setDescription(msgToSend)
     .setTimestamp();
 }

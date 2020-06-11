@@ -35,7 +35,7 @@ module.exports = ({ client, bot, discordConfig, Discord, chalk, util }) => {
 function LogLootboxOpenEvent(chalk, currentLootbox) {
   console.log(
     chalk.white("[") +
-      chalk.blue("log_lootboxes") +
+      chalk.yellow("log_lootboxes") +
       chalk.white("]") +
       chalk.green(currentLootbox.ign) +
       chalk.gray(" has just opened a lootbox.")

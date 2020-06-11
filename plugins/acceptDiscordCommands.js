@@ -1,4 +1,4 @@
-module.exports = () => {
+module.exports = ({ client, bot }) => {
   client.on("message", (msg) => {
     if (
       msg.content.startsWith("> ") &&

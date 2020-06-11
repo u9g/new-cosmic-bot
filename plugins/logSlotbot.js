@@ -64,7 +64,7 @@ function LogSlotRollEvent(currentRoll, chalk) {
   const len = currentRoll.items.length;
   console.log(
     chalk.white("[") +
-      chalk.blue("log_slotbot") +
+      chalk.yellow("log_slotbot") +
       chalk.white("] ") +
       chalk.green(ign) +
       chalk.gray(" has just rolled ") +
@@ -76,7 +76,7 @@ function LogSlotRollEvent(currentRoll, chalk) {
 function LogMetaSpinEvent(ign, chalk) {
   console.log(
     chalk.white("[") +
-      chalk.blue("slotbot_meta_spin") +
+      chalk.yellow("slotbot_meta_spin") +
       chalk.white("]") +
       chalk.green(ign) +
       chalk.gray(" has just rolled a meta spin.")
