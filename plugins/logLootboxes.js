@@ -11,13 +11,7 @@ module.exports = ({ client, bot, discordConfig, Discord, chalk, util }) => {
       //ign
       const newStr = fullText.substring(4);
       currentLootbox.ign = newStr.substring(0, newStr.indexOf(" "));
-      console.log(
-        chalk.white("[") +
-          chalk.blue("log_lootboxes") +
-          chalk.white("]") +
-          chalk.green(currentLootbox.ign) +
-          chalk.gray(" has just opened a lootbox.")
-      );
+      LogLootboxOpenEvent(chalk, currentLootbox);
       //lootbox
       const newStr2 = fullText.substring(fullText.indexOf("Lootbox: ") + 9);
       currentLootbox.name = newStr2.substring(0, newStr2.indexOf("and")).trim();
@@ -38,6 +32,16 @@ module.exports = ({ client, bot, discordConfig, Discord, chalk, util }) => {
     }
   });
 };
+function LogLootboxOpenEvent(chalk, currentLootbox) {
+  console.log(
+    chalk.white("[") +
+      chalk.blue("log_lootboxes") +
+      chalk.white("]") +
+      chalk.green(currentLootbox.ign) +
+      chalk.gray(" has just opened a lootbox.")
+  );
+}
+
 function createEmbed(Discord, currentLootbox) {
   const dataStr = makeDescription(currentLootbox);
   return new Discord.MessageEmbed()
