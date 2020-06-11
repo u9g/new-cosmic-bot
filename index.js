@@ -31,6 +31,7 @@ function relog() {
 }
 function startPlugins(plugins, bot) {
   let pluginsArr = makePluginArr();
+  startHelpCommand();
   for (const plugin of pluginsArr) {
     if (plugin.enabled) {
       const requireList = {
@@ -50,6 +51,15 @@ function startPlugins(plugins, bot) {
         chalk.white(" has been loaded.");
       console.log(chalk.cyan(pluginLoadedMsg));
     }
+  }
+
+  function startHelpCommand() {
+    const pluginLoadedMsg =
+      chalk.cyan("[Plugin Loader] ") +
+      chalk.green("help_command") +
+      chalk.white(" has been loaded.");
+    console.log(pluginLoadedMsg);
+    require("./plugins/helpCommand.js")(client, pluginsArr, Discord, util);
   }
 
   function makePluginArr() {
