@@ -10,6 +10,7 @@ const chalk = require("chalk");
 const { handler } = require("./commands");
 
 let bot = mineflayer.createBot(options);
+bot.setMaxListeners(99);
 bindEvents(bot);
 startPlugins(plugins, bot);
 

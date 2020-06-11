@@ -3,6 +3,7 @@ const commands = new Map([
   ["bal", 5],
   ["abal", 15],
   ["puns", 5],
+  ["puntop", "5"],
 ]);
 
 let commandCooldown = new Map([
@@ -10,6 +11,7 @@ let commandCooldown = new Map([
   ["bal", new Map()],
   ["abal", new Map()],
   ["puns", new Map()],
+  ["puntop", new Map()],
 ]);
 
 const handler = function (message, command, resolve, reject) {
@@ -40,6 +42,7 @@ const handler = function (message, command, resolve, reject) {
       case "bal":
       case "baltop":
       case "puns":
+      case "puntop":
         resolve();
         commandCooldown.get(command).set(message.author.id, new Date());
         delay();
