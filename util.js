@@ -64,7 +64,7 @@ exports.SendAlreadyRunning = (channel, prefix, Discord) => {
 exports.SendExecuted = (chalk, plugin, user) => {
   console.log(
     chalk.white("[") +
-      chalk.blue(plugin.plugin_name) +
+      chalk.yellow(plugin.plugin_name) +
       chalk.white("]") +
       chalk.gray(" has been executed by " + user + ".")
   );
@@ -72,8 +72,13 @@ exports.SendExecuted = (chalk, plugin, user) => {
 exports.SendExecutedByServer = (chalk, plugin) => {
   console.log(
     chalk.white("[") +
-      chalk.blue(plugin.plugin_name) +
+      chalk.yellow(plugin.plugin_name) +
       chalk.white("]") +
       chalk.gray(" has been executed.")
   );
+};
+exports.EscapeMarkdown = (text) => {
+  var unescaped = text.replace(/\\(\*|_|`|~|\\)/g, "$1"); // unescape any "backslashed" character
+  var escaped = unescaped.replace(/(\*|_|`|~|\\)/g, "\\$1"); // escape *, _, `, ~, \
+  return escaped;
 };

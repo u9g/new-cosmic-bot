@@ -27,8 +27,8 @@ module.exports = ({
     ) {
       AddData(fullText, regex, isTop);
     } else if (!regex.number.test(fullText) && showingData) {
-      const msgToSend = createMessage(isTop);
-      const embed = CreateEmbed(msgToSend, Discord);
+      const msgToSend = createMessage(isTop, util);
+      const embed = CreateEmbed(msgToSend, Discord, util);
       SendMessage(channels, client, embed);
       showingData = false;
       isTop = [];
@@ -56,7 +56,7 @@ function SendMessage(channels, client, embed) {
   });
 }
 
-function createMessage(isTop) {
+function createMessage(isTop, util) {
   let strToSend = "";
   isTop.forEach((user) => {
     const info = {
@@ -65,12 +65,9 @@ function createMessage(isTop) {
       xp: user.substring(user.indexOf("(") + 1, user.indexOf("EXP") - 1),
     };
     const points = [40, 36, 32, 28, 24, 20, 16, 12, 8, 4];
-    strToSend +=
-      `${info.number}. ` +
-      "`" +
-      info.name +
-      "`" +
-      ` => ${info.xp} XP & ${points[info.number - 1]} Points\n`;
+    strToSend += `${info.number}. **${util.EscapeMarkdown(info.name)}** => **${
+      info.xp
+    }** & **${points[info.number - 1]}** Points\n`;
   });
   return strToSend;
 }

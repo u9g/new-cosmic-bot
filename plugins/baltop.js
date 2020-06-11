@@ -58,27 +58,37 @@ function sendMessage(client, embed, channelId) {
 }
 
 function createEmbed(Discord, data, util) {
-  const desc = createDescription(data);
+  const desc = createDescription(data, util);
   return new Discord.MessageEmbed()
-    .setTitle("`>baltop`")
+    .setTitle("**>baltop**")
     .setDescription(desc)
     .setColor(util.GenerateRandomEmbedColor())
     .setTimestamp();
 }
-function createDescription(data) {
+function createDescription(data, util) {
   let dataStr = "";
-  data.forEach(
-    (baltopEntry) =>
-      (dataStr +=
-        baltopEntry.substring(0, baltopEntry.indexOf(" ") + 1) +
-        "`" +
-        baltopEntry.substring(
-          baltopEntry.indexOf(" ") + 1,
-          baltopEntry.indexOf(":")
-        ) +
-        "`" +
-        baltopEntry.substring(baltopEntry.indexOf(":")) +
-        "\n")
-  );
+  data.forEach((baltopEntry) => {
+    const number = getNumber(baltopEntry);
+    const ign = getIgn(util.EscapeMarkdown(baltopEntry));
+    const bal = getBalance(baltopEntry);
+    dataStr += `${number}. **${ign}**: $${bal}\n`;
+    //dataStr += number + "`" + ign + "**" + bal + "\n";
+  });
   return dataStr;
+
+  function getBalance(baltopEntry) {
+    return baltopEntry.substring(baltopEntry.indexOf(":") + 4);
+  }
+
+  function getNumber(baltopEntry) {
+    const num = baltopEntry.substring(0, baltopEntry.indexOf(" ") + 1);
+    return num.substring(0, num.length - 2);
+  }
+
+  function getIgn(baltopEntry) {
+    return baltopEntry.substring(
+      baltopEntry.indexOf(" ") + 1,
+      baltopEntry.indexOf(":")
+    );
+  }
 }
