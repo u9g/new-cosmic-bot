@@ -1,6 +1,6 @@
 module.exports = (client, plugins, Discord, util) => {
   client.on("message", (msg) => {
-    if (msg.content === ">help") {
+    if (msg.content === ">help" && msg.channel.id === util.getCmdChannel()) {
       const description = createDescription(plugins);
       const embed = createEmbed(Discord, description, util);
       msg.channel.send(embed);
