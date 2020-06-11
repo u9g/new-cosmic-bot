@@ -69,3 +69,11 @@ exports.SendExecuted = (chalk, plugin, user) => {
       chalk.gray(" has been executed by " + user + ".")
   );
 };
+exports.SendExecutedByServer = (chalk, plugin) => {
+  console.log(
+    chalk.white("[") +
+      chalk.blue(plugin.plugin_name) +
+      chalk.white("]") +
+      chalk.gray(" has been executed.")
+  );
+};
