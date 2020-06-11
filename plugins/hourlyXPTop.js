@@ -19,7 +19,7 @@ module.exports = ({
     const fullText = util.GenerateFullText(msg);
 
     if (fullText.includes("Top 10 Hourly Island Exp")) {
-      showingData = StartGatheringData(showingData, chalk, plugin);
+      showingData = StartGatheringData(showingData, chalk, plugin, util);
     } else if (
       regex.number.test(fullText) &&
       showingData &&
@@ -84,8 +84,8 @@ function getTime() {
     : new Date(Date.now()).getHours() + " am";
 }
 
-function StartGatheringData(showingData, chalk, plugin) {
-  SendExecutedByServer(chalk, plugin);
+function StartGatheringData(showingData, chalk, plugin, util) {
+  util.SendExecutedByServer(chalk, plugin, util);
   showingData = true;
   return showingData;
 }

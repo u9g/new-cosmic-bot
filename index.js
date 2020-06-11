@@ -25,6 +25,7 @@ function bindEvents(bot) {
 function relog() {
   console.log("Attempting to reconnect...");
   bot = mineflayer.createBot(options);
+  bot.setMaxListeners(99);
   startPlugins(plugins, bot);
   bindEvents(bot);
 }

@@ -28,7 +28,7 @@ function LogFlashSaleEvent(chalk, ign) {
     chalk.white("[") +
       chalk.blue("log_lootboxes") +
       chalk.white("]") +
-      chalk.green(currentLootbox.ign) +
+      chalk.green(ign) +
       chalk.gray(" has just opened a lootbox.")
   );
 }

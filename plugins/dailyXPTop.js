@@ -19,7 +19,7 @@ module.exports = ({
     const fullText = util.GenerateFullText(msg);
 
     if (fullText.includes("Top 10 Daily Island Exp")) {
-      showingData = startGatheringData(showingData, chalk, plugin);
+      showingData = startGatheringData(showingData, chalk, plugin, util);
     } else if (
       regex.number.test(fullText) &&
       showingData &&
@@ -75,7 +75,7 @@ function createMessage(isTop) {
   return strToSend;
 }
 
-function startGatheringData(showingData, chalk, plugin) {
+function startGatheringData(showingData, chalk, plugin, util) {
   util.SendExecutedByServer(chalk, plugin);
   showingData = true;
   return showingData;

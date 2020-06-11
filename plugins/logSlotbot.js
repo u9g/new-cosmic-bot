@@ -65,11 +65,11 @@ function LogSlotRollEvent(currentRoll, chalk) {
   console.log(
     chalk.white("[") +
       chalk.blue("log_slotbot") +
-      chalk.white("]") +
+      chalk.white("] ") +
       chalk.green(ign) +
       chalk.gray(" has just rolled ") +
       chalk.green(len) +
-      chalk.gray("tickets.")
+      chalk.gray(" tickets.")
   );
 }
 

@@ -70,6 +70,6 @@ function requestAllIsTops(count, bot) {
   for (let i = 1; i <= count; i++) {
     setTimeout(() => {
       bot.chat("/is top " + i);
-    }, 1000 * i);
+    }, 3000 * i);
   }
 }
