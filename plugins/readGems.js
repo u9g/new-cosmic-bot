@@ -72,8 +72,6 @@ function SendDiscordMessage(client, channels, embed, discordConfig) {
       .catch(console.error);
   });
 
-  sendMessagesToAllDiscs();
-
   function isMsgSameAsOther(messg) {
     return (
       messg.embeds && messg.embeds[0] && messg.embeds[0].title === embed.title
