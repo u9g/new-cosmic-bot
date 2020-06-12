@@ -20,84 +20,84 @@
     "cmd_name": ">baltop",
     "description": "Gets the top 15 balances.",
     "path": "./plugins/baltop.js",
-    "enabled": false
+    "enabled": true
   },
   "balance": {
     "plugin_name": "balance",
     "cmd_name": ">bal",
     "description": "Gets the balance of the user requested.",
     "path": "./plugins/userBalance.js",
-    "enabled": false
+    "enabled": true
   },
   "alliance_balance": {
     "plugin_name": "alliance_balance",
     "cmd_name": ">a bal",
     "description": "Gets the balance of the alliance requested.",
     "path": "./plugins/allianceBalance.js",
-    "enabled": false
+    "enabled": true
   },
   "kick_handler": {
     "plugin_name": "kick_handler",
     "cmd_name": "",
     "description": "",
     "path": "./plugins/kickHandler.js",
-    "enabled": false
+    "enabled": true
   },
   "punishments": {
     "plugin_name": "punishments",
     "cmd_name": [">punishments", ">puns", ">pun"],
     "description": "Gets the punishments of the user requested.",
     "path": "./plugins/getPunishments.js",
-    "enabled": false
+    "enabled": true
   },
   "acceptDiscCmds": {
     "plugin_name": "accept_discord_commands",
     "cmd_name": "",
     "description": "",
     "path": "./plugins/acceptDiscordCommands.js",
-    "enabled": true
+    "enabled": false
   },
   "dailyXpTop": {
     "plugin_name": "daily_xp_top",
     "cmd_name": "",
     "description": "",
     "path": "./plugins/dailyXPTop.js",
-    "enabled": false
+    "enabled": true
   },
   "hourlyXpTop": {
     "plugin_name": "hourly_xp_top",
     "cmd_name": "",
     "description": "",
     "path": "./plugins/hourlyXPTop.js",
-    "enabled": false
+    "enabled": true
   },
   "logLootboxes": {
     "plugin_name": "log_lootboxes",
     "cmd_name": "",
     "description": "",
     "path": "./plugins/logLootboxes.js",
-    "enabled": false
+    "enabled": true
   },
   "logSlotbots": {
     "plugin_name": "log_slotbot",
     "cmd_name": "",
     "description": "",
     "path": "./plugins/logSlotbot.js",
-    "enabled": false
+    "enabled": true
   },
   "slotBotFlashSale": {
     "plugin_name": "log_slot_flash_sale",
     "cmd_name": "",
     "description": "",
     "path": "./plugins/slotBotFlashSale.js",
-    "enabled": false
+    "enabled": true
   },
   "logGems": {
     "plugin_name": "log_gems",
     "cmd_name": "",
     "description": "",
     "path": "./plugins/readGems.js",
-    "enabled": false
+    "enabled": true
   },
   "generateIsTopUsernames": {
     "plugin_name": "generate_is_top_igns",
@@ -111,19 +111,19 @@
     "cmd_name": [">puntop", ">punishmentstop"],
     "description": "Gets users with the most punishments of the given type.",
     "path": "./plugins/punishmentsTop.js",
-    "enabled": false
+    "enabled": true
   },
   "slot_restock": {
     "plugin_name": "slot_bot_restock",
     "cmd_name": "",
     "description": "",
     "path": "./plugins/slotBotRestock.js",
-    "enabled": false
+    "enabled": true
   },
   "island_points_top": {
     "plugin_name": "island_points_top",
     "cmd_name": ">is points top",
-    "description": "",
+    "description": "Gets the islands with the most island points.",
     "path": "./plugins/isPointsTop.js",
     "enabled": true
   }
