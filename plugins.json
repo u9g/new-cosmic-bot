@@ -1,0 +1,130 @@
+{
+  "send_join": {
+    "plugin_name": "send_join",
+    "cmd_name": "",
+    "prefix": "",
+    "description": "",
+    "path": "./plugins/sendJoin.js",
+    "enabled": true
+  },
+  "discord_ready": {
+    "plugin_name": "discord_ready",
+    "cmd_name": "",
+    "prefix": "",
+    "description": "",
+    "path": "./plugins/discordReady.js",
+    "enabled": true
+  },
+  "baltop": {
+    "plugin_name": "baltop",
+    "cmd_name": ">baltop",
+    "description": "Gets the top 15 balances.",
+    "path": "./plugins/baltop.js",
+    "enabled": false
+  },
+  "balance": {
+    "plugin_name": "balance",
+    "cmd_name": ">bal",
+    "description": "Gets the balance of the user requested.",
+    "path": "./plugins/userBalance.js",
+    "enabled": false
+  },
+  "alliance_balance": {
+    "plugin_name": "alliance_balance",
+    "cmd_name": ">a bal",
+    "description": "Gets the balance of the alliance requested.",
+    "path": "./plugins/allianceBalance.js",
+    "enabled": false
+  },
+  "kick_handler": {
+    "plugin_name": "kick_handler",
+    "cmd_name": "",
+    "description": "",
+    "path": "./plugins/kickHandler.js",
+    "enabled": false
+  },
+  "punishments": {
+    "plugin_name": "punishments",
+    "cmd_name": [">punishments", ">puns", ">pun"],
+    "description": "Gets the punishments of the user requested.",
+    "path": "./plugins/getPunishments.js",
+    "enabled": false
+  },
+  "acceptDiscCmds": {
+    "plugin_name": "accept_discord_commands",
+    "cmd_name": "",
+    "description": "",
+    "path": "./plugins/acceptDiscordCommands.js",
+    "enabled": true
+  },
+  "dailyXpTop": {
+    "plugin_name": "daily_xp_top",
+    "cmd_name": "",
+    "description": "",
+    "path": "./plugins/dailyXPTop.js",
+    "enabled": false
+  },
+  "hourlyXpTop": {
+    "plugin_name": "hourly_xp_top",
+    "cmd_name": "",
+    "description": "",
+    "path": "./plugins/hourlyXPTop.js",
+    "enabled": false
+  },
+  "logLootboxes": {
+    "plugin_name": "log_lootboxes",
+    "cmd_name": "",
+    "description": "",
+    "path": "./plugins/logLootboxes.js",
+    "enabled": false
+  },
+  "logSlotbots": {
+    "plugin_name": "log_slotbot",
+    "cmd_name": "",
+    "description": "",
+    "path": "./plugins/logSlotbot.js",
+    "enabled": false
+  },
+  "slotBotFlashSale": {
+    "plugin_name": "log_slot_flash_sale",
+    "cmd_name": "",
+    "description": "",
+    "path": "./plugins/slotBotFlashSale.js",
+    "enabled": false
+  },
+  "logGems": {
+    "plugin_name": "log_gems",
+    "cmd_name": "",
+    "description": "",
+    "path": "./plugins/readGems.js",
+    "enabled": false
+  },
+  "generateIsTopUsernames": {
+    "plugin_name": "generate_is_top_igns",
+    "cmd_name": "",
+    "description": "generates usernames for helperPunTop",
+    "path": "./plugins/generateIsTopUsernames.js",
+    "enabled": false
+  },
+  "punTop": {
+    "plugin_name": "punishments_top",
+    "cmd_name": [">puntop", ">punishmentstop"],
+    "description": "Gets users with the most punishments of the given type.",
+    "path": "./plugins/punishmentsTop.js",
+    "enabled": false
+  },
+  "slot_restock": {
+    "plugin_name": "slot_bot_restock",
+    "cmd_name": "",
+    "description": "",
+    "path": "./plugins/slotBotRestock.js",
+    "enabled": false
+  },
+  "island_points_top": {
+    "plugin_name": "island_points_top",
+    "cmd_name": ">is points top",
+    "description": "",
+    "path": "./plugins/isPointsTop.js",
+    "enabled": true
+  }
+}

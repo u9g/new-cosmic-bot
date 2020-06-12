@@ -1,5 +1,5 @@
 exports.mineflayerOptions = () => {
-  const config = require("./login.json");
+  const config = require("./configs/login.json");
   const options = {
     host: config["server-ip"],
     port: 25565,
@@ -10,11 +10,11 @@ exports.mineflayerOptions = () => {
 };
 
 exports.getCmdChannel = () => {
-  return require("./login.json")["cmd-channel"];
+  return require("./configs/login.json")["cmd-channel"];
 };
 
 exports.discordToken = () => {
-  return require("./login.json")["discord-token"];
+  return require("./configs/login.json")["discord-token"];
 };
 
 exports.GenerateFullText = (msg) => {
