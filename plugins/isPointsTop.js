@@ -67,10 +67,10 @@ function createEmbed(Discord, info, util) {
 
 function createDescription(info, util) {
   let desc = "";
-  for (let i = 1; i < 11; i++) {
+  for (let i = 0; i < 10; i++) {
     const ign = util.EscapeMarkdown(info[i][0]);
     const points = info[i][1];
-    desc += `${i}. **${ign}**: ${points}\n`;
+    desc += `${i + 1}. **${ign}**: ${points}\n`;
   }
   return desc;
 }
