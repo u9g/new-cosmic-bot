@@ -31,7 +31,7 @@ function relog() {
 }
 function startPlugins(plugins, bot) {
   let pluginsArr = makePluginArr();
-  startHelpCommand();
+  //startHelpCommand();
   for (const plugin of pluginsArr) {
     if (plugin.enabled) {
       const requireList = {
