@@ -14,7 +14,9 @@ module.exports = ({ client, bot, discordConfig, Discord, chalk, util }) => {
       LogLootboxOpenEvent(chalk, currentLootbox);
       //lootbox
       const newStr2 = fullText.substring(fullText.indexOf("Lootbox: ") + 9);
-      const name = newStr2.substring(0, b.indexOf("and received:")).trim();
+      const name = newStr2
+        .substring(0, newStr2.indexOf("and received:"))
+        .trim();
       currentLootbox.name = name;
       //get lootbox items
       showingLootBox = true;
