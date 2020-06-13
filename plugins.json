@@ -20,21 +20,21 @@
     "cmd_name": ">baltop",
     "description": "Gets the top 15 balances.",
     "path": "./plugins/baltop.js",
-    "enabled": true
+    "enabled": false
   },
   "balance": {
     "plugin_name": "balance",
     "cmd_name": ">bal",
     "description": "Gets the balance of the user requested.",
     "path": "./plugins/userBalance.js",
-    "enabled": true
+    "enabled": false
   },
   "alliance_balance": {
     "plugin_name": "alliance_balance",
     "cmd_name": ">a bal",
     "description": "Gets the balance of the alliance requested.",
     "path": "./plugins/allianceBalance.js",
-    "enabled": true
+    "enabled": false
   },
   "kick_handler": {
     "plugin_name": "kick_handler",
@@ -48,7 +48,7 @@
     "cmd_name": [">punishments", ">puns", ">pun"],
     "description": "Gets the punishments of the user requested.",
     "path": "./plugins/getPunishments.js",
-    "enabled": true
+    "enabled": false
   },
   "acceptDiscCmds": {
     "plugin_name": "accept_discord_commands",
@@ -111,7 +111,7 @@
     "cmd_name": [">puntop", ">punishmentstop"],
     "description": "Gets users with the most punishments of the given type.",
     "path": "./plugins/punishmentsTop.js",
-    "enabled": true
+    "enabled": false
   },
   "slot_restock": {
     "plugin_name": "slot_bot_restock",
@@ -125,6 +125,6 @@
     "cmd_name": ">is points top",
     "description": "Gets the islands with the most island points.",
     "path": "./plugins/isPointsTop.js",
-    "enabled": true
+    "enabled": false
   }
 }
