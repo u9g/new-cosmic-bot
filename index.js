@@ -10,7 +10,6 @@ const chalk = require("chalk");
 const { handler } = require("./commands");
 
 let bot = mineflayer.createBot(options);
-bot.setMaxListeners(99);
 bindEvents(bot);
 startPlugins(plugins, bot);
 
@@ -18,6 +17,7 @@ function bindEvents(bot) {
   //for relogging
   bot.on("kicked", (reason) => {
     console.log(reason);
+    bot.clear;
     setTimeout(relog, 300000); // If set less than 30s you will get an invalid credentials error
   });
 }
@@ -25,9 +25,8 @@ function bindEvents(bot) {
 function relog() {
   console.log("Attempting to reconnect...");
   bot = mineflayer.createBot(options);
-  bot.setMaxListeners(99);
-  startPlugins(plugins, bot);
   bindEvents(bot);
+  startPlugins(plugins, bot);
 }
 function startPlugins(plugins, bot) {
   let pluginsArr = makePluginArr();
