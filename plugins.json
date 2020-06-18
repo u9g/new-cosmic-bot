@@ -126,5 +126,26 @@
     "description": "Gets the islands with the most island points.",
     "path": "./plugins/isPointsTop.js",
     "enabled": false
+  },
+  "boss_logger": {
+    "plugin_name": "boss_logger",
+    "cmd_name": "",
+    "description": "",
+    "path": "./plugins/bossLogger.js",
+    "enabled": true
+  },
+  "chat_logger": {
+    "plugin_name": "chat_logger",
+    "cmd_name": "",
+    "description": "",
+    "path": "./plugins/logChat.js",
+    "enabled": false
+  },
+  "deadzone_logger": {
+    "plugin_name": "deadzone_logger",
+    "cmd_name": "",
+    "description": "",
+    "path": "./plugins/deadzoneLogger.js",
+    "enabled": true
   }
 }
